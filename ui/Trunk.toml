@@ -1,0 +1,9 @@
+[build]
+target = "index.html"
+release = false
+dist = "../server/static"
+public_url = "/"
+
+[watch]
+path = ["src"]
+

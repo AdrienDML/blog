@@ -1,8 +1,10 @@
 use yew::prelude::*;
+use yew::html::ChildrenRenderer;
+use yew::virtual_dom::{VChild, VComp};
 
-use crate::colors;
+use crate::styles::colors::Color;
 
-use super::colors::Color;
+mod drop_down_menu;
 
 #[derive(Properties, Clone, PartialEq)]
 pub struct BarProps {
@@ -11,24 +13,35 @@ pub struct BarProps {
     #[prop_or(Color::Fg)]
     fg_color : Color,
     #[prop_or_default]
-    size : u32,
+    height : u32,
+}
+
+impl BarProps {
+    
+    fn style() -> {
+
+    }
 }
 
 pub struct MenuBar {
-    props : MenuProps
+    props : BarProps,
+    link : ComponentLink<Self>,
 }
 
 
 impl Component for MenuBar {
-    type Message;
+    type Message = ();
 
     type Properties = BarProps;
 
     fn create(props: Self::Properties, link: ComponentLink<Self>) -> Self {
-        todo!()
+        Self {
+            props,
+            link,
+        }
     }
 
-    fn update(&mut self, msg: Self::Message) -> ShouldRender {
+    fn update(&mut self, _msg: Self::Message) -> ShouldRender {
         todo!()
     }
 
@@ -37,15 +50,11 @@ impl Component for MenuBar {
     }
 
     fn view(&self) -> Html {
-        todo!()
+        html!{
+            <nav>
+            </nav>
+        }
     }
 }
 
-pub struct MenuProps {
-    
-}
 
-pub enum Menu {
-    Simple(),
-    DropDown(),
-}

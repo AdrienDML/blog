@@ -1,5 +1,10 @@
+mod topbar;
+
+extern crate yew;
 use yew::prelude::*;
 
+mod colors;
+mod topbar;
 pub enum Msg {
     AddOne,
 }
@@ -13,7 +18,7 @@ impl Component for Test {
     type Message = Msg;
     type Properties = ();
 
-    fn create(props: Self::Properties, link: ComponentLink<Self>) -> Self {
+    fn create(_props: Self::Properties, link: ComponentLink<Self>) -> Self {
         Self {
             link,
             value: 0,

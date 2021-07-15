@@ -1,7 +1,12 @@
+use std::fmt::Display;
+
 #[derive(Clone, PartialEq)]
 pub enum Color {
     Fg,
+    FgAlt,
     Bg,
+    BgAlt,
+    BgLight,
     Red,
     Blue,
     Green,
@@ -13,27 +18,30 @@ pub enum Color {
     Black,
 }
 
-impl Color {
 
-    pub fn as_str(&self) -> &str {
+impl Display for  Color {
+    
+
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        use Color::*;
         match self {
-            Color::Fg => {"#000000"}
-            Color::Bg => {"#000000"}
-            Color::Red => {"#000000"}
-            Color::Blue => {"#000000"}
-            Color::Green => {"#000000"}
-            Color::Majenta => {"#000000"}
-            Color::Yelllow => {"#000000"}
-            Color::Cyan => {"#000000"}
-            Color::Orange => {"#000000"}
-            Color::White => {"#000000"}
-            Color::Black => {"#000000"}
+            Fg => write!(f, "#f8f8f2"),
+            FgAlt => write!(f, "#cfcfc2"),
+            Bg => write!(f, "#000000"),
+            BgAlt => write!(f, "#3e3d32"),
+            BgLight => write!(f, "#75715e"),
+            Red => write!(f, "#f92672"),
+            Blue => write!(f, "#66d9ef"),
+            Green => write!(f, "#a6e22e"),
+            Majenta => write!(f, "#fd5ff0"),
+            Yelllow => write!(f, "#e6db74"),
+            Cyan => write!(f, "#a1efe4"),
+            Orange => write!(f, "#fd971f"),
+            White => write!(f, "#000000"),
+            Black => write!(f, "#ffffff"),
         }
     }
 }
 
-pub trait Style {
-    fn get_style() -> String;
-}
 
 

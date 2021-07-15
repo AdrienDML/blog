@@ -1,6 +1,7 @@
 [build]
-target = "index.html"
+target = "static/index.html"
 release = false
+dist = "build"
 public_url = "/"
 
 [watch]
